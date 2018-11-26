@@ -15,7 +15,14 @@ function createBaseConfig(env){
         Loaders:    resolve(env.base, 'loaders'),
       },
       extensions: ['.js', '.jsx'],
-    }
+    },
+    module: {
+      rules:[{
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      }]
+    },
   };
 }
 
