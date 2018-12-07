@@ -1,0 +1,14 @@
+.#{$klassName} {
+  width: 100%;
+  overflow-x: hidden;
+  
+  @media (min-width: $sm) {
+    width: 100%;
+    overflow: visible;
+  }
+
+  @import '__wrapper/index.scss';
+  @import '__left/index.scss';
+  @import '__right/index.scss';
+  @import '__resizer/index.scss';
+}

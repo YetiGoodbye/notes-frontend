@@ -1,0 +1,13 @@
+&__spacer {
+  height: 50px;
+  display: block;
+  order: 5;
+
+  @media (min-width: $sm) {
+    display: none;
+  }
+
+
+
+  background-color: pink;
+}

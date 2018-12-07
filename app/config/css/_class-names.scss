@@ -1,0 +1,25 @@
+$root:              root;
+$application:       application;
+$layoutHmmf:        layout-hmmf;
+$header:            header;
+$menu:              menu;
+$main:              main;
+$footer:            footer;
+$resizableSlidable: resizable-slidable;
+$notesNavigator:    notes-navigator;
+$navigatorTree:     navigator-tree;
+$navigatorItem:     navigator-item;
+
+:export {
+  root:              $root;
+  application:       $application;
+  layoutHmmf:        $layoutHmmf;
+  header:            $header;
+  menu:              $menu;
+  main:              $main;
+  footer:            $footer;
+  resizableSlidable: $resizableSlidable;
+  notesNavigator:    $notesNavigator;
+  navigatorTree:     $navigatorTree;
+  navigatorItem:     $navigatorItem;
+}

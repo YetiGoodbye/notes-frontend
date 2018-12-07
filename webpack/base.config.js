@@ -5,16 +5,18 @@ function createBaseConfig(env){
     entry: resolve(env.base, 'app/index.js'),
     resolve: {
       alias: {
-        Components: resolve(env.base, 'app/components/'),
         Actions:    resolve(env.base, 'app/actions/'),
-        Reducers:   resolve(env.base, 'app/reducers/'),
+        Api:        resolve(env.base, 'app/api/'),
+        CommonComponents: resolve(env.base, 'app/common-components/'),
+        Components: resolve(env.base, 'app/components/'),
         Config:     resolve(env.base, 'app/config/'),
+        Reducers:   resolve(env.base, 'app/reducers/'),
+        Selectors:  resolve(env.base, 'app/reducers/'),
         Utils:      resolve(env.base, 'app/utils/'),
-        Store:      resolve(env.base, 'app/store/'),
-        Selectors:  resolve(env.base, 'app/selectors/'),
-        Loaders:    resolve(env.base, 'loaders'),
+        //Store:      resolve(env.base, 'app/store/'),
+        //Loaders:    resolve(env.base, 'loaders'),
       },
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx']
     },
     module: {
       rules:[{

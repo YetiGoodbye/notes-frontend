@@ -1,0 +1,10 @@
+@import 'Utils/css/_reset.scss';
+
+@import 'Config/css/_media-size.scss';
+@import 'Config/css/_class-names.scss';
+
+.#{$root} {
+}
+
+$klassName: $application;
+@import 'Components/Application/index.scss';

@@ -1,0 +1,13 @@
+&__header {
+  height: 50px;
+  display: block;
+  order:1;
+
+  @media (min-width: $sm) {
+  }
+
+
+
+
+  background-color: green;
+}

@@ -1,0 +1,10 @@
+&__right{
+  display: block;
+  flex: 1;
+    
+  @media (min-width: $sm) {
+    display: block;
+    flex: 1;
+    order: 3;
+  }
+}

@@ -15,6 +15,16 @@ function createDevConfig(env){
     output: {
       filename: 'bundle.[hash:8].js',
     },
+    module: {
+      rules: [{
+        test: /\.scss|\.css$/,
+        use: [
+            "style-loader",
+            'css-loader',
+            "sass-loader",
+        ],
+      }],
+    },
     plugins: [
       new HtmlWebpackPlugin({
         template: resolve(env.base, 'webpack/index.html'),

@@ -1,0 +1,12 @@
+&__resizer {
+  display: none;
+    
+  @media (min-width: $sm) {
+    flex:none;
+    display: block;
+    background: black;
+    order: 2;
+    cursor: col-resize;
+    min-width: 5px;
+  }
+}

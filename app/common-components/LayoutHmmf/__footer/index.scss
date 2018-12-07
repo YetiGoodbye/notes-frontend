@@ -1,0 +1,10 @@
+&__footer {
+  height: 50px;
+  order: 4;
+
+  @media (min-width: $sm) {
+  }
+
+
+  background-color: blue;
+}

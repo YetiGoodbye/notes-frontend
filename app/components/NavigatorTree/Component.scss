@@ -1,0 +1,9 @@
+.#{$klassName} {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@import 'CommonComponents/TreeView/index.scss';
+
+$klassName: $navigatorItem;
+@import 'Components/NavigatorItem/index.scss';

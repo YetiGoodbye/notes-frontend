@@ -1,0 +1,16 @@
+.#{$klassName} {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @import '__header/index.scss';
+  @import '__menu/index.scss';
+  @import '__main/index.scss';
+  @import '__footer/index.scss';
+  @import '__spacer/index.scss';
+
+  @import 'Components/Header/index.scss';
+  @import 'Components/Menu/index.scss';
+  @import 'Components/Main/index.scss';
+  @import 'Components/Footer/index.scss';
+}

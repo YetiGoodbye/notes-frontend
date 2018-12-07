@@ -1,0 +1,17 @@
+&__menu {
+  height: 50px;
+  display: block;
+  order: 2;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  @media (min-width: $sm) {
+    order: 2;
+    position: static;
+  }
+
+
+
+  background-color: tomato;
+}

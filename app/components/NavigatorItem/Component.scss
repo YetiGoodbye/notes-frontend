@@ -1,0 +1,8 @@
+.#{$klassName} {
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: yellow;
+  }
+}

@@ -1,0 +1,15 @@
+.#{$klassName} {
+  background-color: #DDD;
+}
+
+$klassName: $layoutHmmf;
+@import 'CommonComponents/LayoutHmmf/index.scss';
+
+$klassName: $resizableSlidable;
+@import 'CommonComponents/ResizableSlidable/index.scss';
+
+$klassName: $notesNavigator;
+@import 'Components/NotesNavigator/index.scss';
+
+@import 'Components/debug/LoremIpsum1/index.scss';
+@import 'Components/debug/LoremIpsum2/index.scss';

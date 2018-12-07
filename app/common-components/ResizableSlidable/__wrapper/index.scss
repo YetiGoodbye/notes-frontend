@@ -1,0 +1,10 @@
+&__wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 200%;
+  margin-left: 0%;
+
+  @media (min-width: $sm) {
+    width: 100%;
+  }
+}
