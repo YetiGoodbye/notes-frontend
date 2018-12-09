@@ -7,6 +7,7 @@ $main:              main;
 $footer:            footer;
 $resizableSlidable: resizable-slidable;
 $notesNavigator:    notes-navigator;
+$notesExplorer:     notes-explorer;
 $navigatorTree:     navigator-tree;
 $navigatorItem:     navigator-item;
 
@@ -20,6 +21,7 @@ $navigatorItem:     navigator-item;
   footer:            $footer;
   resizableSlidable: $resizableSlidable;
   notesNavigator:    $notesNavigator;
+  notesExplorer:     $notesExplorer;
   navigatorTree:     $navigatorTree;
   navigatorItem:     $navigatorItem;
 }

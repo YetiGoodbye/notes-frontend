@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-
-import $ from 'jquery';
+import { Provider } from 'react-redux';
 
 import createStore from 'Config/store';
 import Application from 'Components/Application';

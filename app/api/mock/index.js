@@ -1,5 +1,7 @@
-import * as navigator from './navigator';
+import * as notesTree from './notesTree';
+import * as notes from './notes';
 
 export {
-  navigator,
+  notesTree,
+  notes,
 }

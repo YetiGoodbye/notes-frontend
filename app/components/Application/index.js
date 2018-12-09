@@ -1,1 +1,1 @@
-module.exports = require('./Component');
+export {default} from './Application';

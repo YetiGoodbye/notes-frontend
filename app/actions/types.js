@@ -1,10 +1,9 @@
 import {createExportableConstants} from 'Utils';
 
-const actionTypes = [
-  'RESIZE',
-  'CREATE_NAVIGATOR_NODE',
-  'UPDATE_NAVIGATOR_NODE',
-  'DELETE_NAVIGATOR_NODE',
+const actions = [
+  'RECEIVE_NOTES_TREE_NODE',
+  'RECEIVE_NOTES_TREE_NODES',
+  'RECEIVE_NOTE',
 ];
 
-export default createExportableConstants(actionTypes);
+export default createExportableConstants(actions);

@@ -1,0 +1,20 @@
+body {
+  background-color: #DDD;
+}
+
+.#{$klassName} {}
+
+$klassName: $layoutHmmf;
+@import 'CommonComponents/LayoutHmmf/index.scss';
+
+$klassName: $notesExplorer;
+@import 'Components/NotesExplorer/index.scss';
+
+$klassName: $header;
+@import 'Components/Header/index.scss';
+
+$klassName: $menu;
+@import 'Components/Menu/index.scss';
+
+$klassName: $footer;
+@import 'Components/Footer/index.scss';

@@ -1,0 +1,7 @@
+.#{$klassName} {}
+
+$klassName: $resizableSlidable;
+@import 'CommonComponents/ResizableSlidable/index.scss';
+
+$klassName: $notesNavigator;
+@import 'Components/NotesNavigator/index.scss';

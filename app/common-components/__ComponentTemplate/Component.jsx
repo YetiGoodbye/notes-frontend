@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ComponentWithBemHelper from 'Utils/ComponentWithBemHelper';
+import WithBemHelper from 'CommonComponents/WithBemHelper';
 
-class Component extends ComponentWithBemHelper{
+class Component extends WithBemHelper{
   render(){
     return (
       <div {...this.classes()}>Component content</div>

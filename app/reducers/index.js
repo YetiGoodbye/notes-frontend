@@ -1,1 +1,2 @@
-module.exports = require('./root');
+export {default} from './rootReducer';
+export * from './rootSelectors';

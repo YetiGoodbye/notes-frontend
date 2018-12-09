@@ -1,1 +1,1 @@
-module.exports = require('./configured');
+export {default} from './Footer';

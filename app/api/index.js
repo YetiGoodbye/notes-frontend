@@ -1,7 +1,1 @@
-import {navigator} from './mock';
-
-export {
-  navigator,
-};
-
-
+export * from './mock';
