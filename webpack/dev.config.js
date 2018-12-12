@@ -14,6 +14,7 @@ function createDevConfig(env){
     mode: 'development',
     output: {
       filename: 'bundle.[hash:8].js',
+      publicPath: '/',
     },
     module: {
       rules: [{
@@ -30,6 +31,7 @@ function createDevConfig(env){
         template: resolve(env.base, 'webpack/index.html'),
         title: 'Notes',
         inject: 'head',
+        favicon: resolve(env.base, 'webpack/favicon.ico'),
       }),
       new ScriptExtHtmlWebpackPlugin({
         defaultAttribute: 'defer',
@@ -46,7 +48,7 @@ function createDevConfig(env){
       watchOptions: {
         aggregateTimeout: 300,
         poll: 1000,
-      }
+      },
     }
   };
 

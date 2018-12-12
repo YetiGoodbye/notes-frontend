@@ -13,7 +13,7 @@ class LayoutHmmf extends WithBemHelper{
         <div {...classes('menu')  }>{ menu   }</div>
         <div {...classes('main')  }>{ main   }</div>
         <div {...classes('footer')}>{ footer }</div>
-        <div {...classes('spacer')}>void</div>
+        <div {...classes('spacer')}></div>
       </div>
     );
   }

@@ -4,7 +4,10 @@ const note = (state = {}, action) => {
   switch(action.type) {
 
     case actionTypes.RECEIVE_NOTE:
-      return action.note;
+      return {
+        ...state,
+        ...action.note,
+      };
 
     default:
       return state;

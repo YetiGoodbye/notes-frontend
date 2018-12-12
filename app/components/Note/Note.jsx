@@ -6,41 +6,61 @@ import {connect} from 'react-redux';
 
 import classNames from 'Config/css/_class-names.scss';
 
-import {fetchNote} from 'Actions';
+import {updateNote} from 'Actions';
+
 import WithBemHelper from 'CommonComponents/WithBemHelper';
+import LoadingIndicator from 'CommonComponents/LoadingIndicator';
 
 class Note extends WithBemHelper{
   render(){
-    console.log('render');
-    const id = this.props.match.params.id || 0;
-    console.log(id);
-    const note = this.props.getNote(id);
-    console.log(note);
+    //const id = this.props.match.params.id || 0;
+    //const note = this.props.getNote(id);
+    const {note} = this.props;
     return (
       <div{...this.classes()}>
       {
-        note ? note.text : "Loading..."
+        (note && note.content) ? note.content : <LoadingIndicator />
       }
       </div>
     );
   }
 
+  componentDidUpdate(){
+    const {note, match, updateNote} = this.props;
+    const needUpdate = !note || (!note.valid && !note.updating);
+    console.log("update", note);
+    if (needUpdate) {
+      updateNote(match.params.id || 0);
+    }
+  }
+
   componentDidMount(){
-    console.log('didMount');
-    const {match, fetchNote} = this.props;
-    fetchNote(match.params.id || 0);
+    const {note, match, updateNote} = this.props;
+    const needUpdate = !note || (!note.valid && !note.updating);
+    console.log("mount", note);
+    if (needUpdate) {
+      updateNote(match.params.id || 0);
+    }
   }
 }
 
 
-Note.propTypes = {};
+Note.propTypes = {
+  updateNote: PropTypes.func.isRequired,
+  note: PropTypes.object,
+};
 
-const mapStateToProps = (state, ownProps) => ({
-  getNote: (id) => getNote(state, id),
-});
+const mapStateToProps = (state, ownProps) => {
+  const note = getNote(state, ownProps.match.params.id || 0);
+  return {
+    note,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchNote: (id) => dispatch(fetchNote(id)),
+  updateNote: (id) => {
+    dispatch(updateNote(id));
+  },
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Note));

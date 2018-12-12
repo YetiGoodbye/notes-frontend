@@ -8,8 +8,10 @@ const failureThreshold = 1;
 
 const fetchNote = (id) => {
 
-  const data = {text: cloneDeep(notes[id])};
-  if (data) data.id = id;
+  const data = {
+    id,
+    content: cloneDeep(notes[id]),
+  };
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {

@@ -14,12 +14,18 @@ class NotesExplorer extends WithBemHelper{
     return (
       <ResizableSlidable
         klassName = {classNames.resizableSlidable}
-        left  = {
-          <NotesNavigator
-            klassName={classNames.notesNavigator}
-          />
-        }
-        right = {<Note/>}
+        left={{
+          component: NotesNavigator,
+          props: {
+            klassName: classNames.notesNavigator,
+          },
+        }}
+        right={{
+          component: Note,
+          props: {
+            klassName: classNames.note,
+          },
+        }}
       />
     );
   }
@@ -28,3 +34,10 @@ class NotesExplorer extends WithBemHelper{
 NotesExplorer.propTypes = {};
 
 export default NotesExplorer;
+
+// left  = {
+//   <NotesNavigator
+//     klassName={classNames.notesNavigator}
+//   />
+// }
+// right = {<Note/>}

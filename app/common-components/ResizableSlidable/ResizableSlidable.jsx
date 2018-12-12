@@ -37,13 +37,17 @@ class ResizableSlidable extends WithBemHelper{
           ref={this.wrapper}>
 
           <div {...this.classes('left')}
-            ref={this.left}>{left}</div>
+            ref={this.left}>
+            <left.component {...left.props} />
+          </div>
 
           <div {...this.classes('resizer')}
             ref={this.resizer}></div>
 
           <div {...this.classes('right')}
-            ref={this.right}>{right}</div>
+            ref={this.right}>
+            <right.component {...right.props} />
+          </div>
         </div>
       </div>
     );
@@ -134,9 +138,19 @@ class ResizableSlidable extends WithBemHelper{
   }
 }
 
+const propTypeComponent = PropTypes.shape({
+    component: PropTypes.func.isRequired,
+    props: PropTypes.object,
+  });
+
+const elementProp = PropTypes.oneOfType([
+  propTypeComponent,
+  PropTypes.node,
+]).isRequired;
+
 ResizableSlidable.propTypes = {
-  left:  PropTypes.node.isRequired,
-  right: PropTypes.node.isRequired,
+  left:  elementProp,
+  right: elementProp,
 };
 
 export default ResizableSlidable;

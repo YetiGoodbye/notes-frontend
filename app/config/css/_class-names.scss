@@ -10,6 +10,7 @@ $notesNavigator:    notes-navigator;
 $notesExplorer:     notes-explorer;
 $navigatorTree:     navigator-tree;
 $navigatorItem:     navigator-item;
+$note:              note;
 
 :export {
   root:              $root;
@@ -24,4 +25,5 @@ $navigatorItem:     navigator-item;
   notesExplorer:     $notesExplorer;
   navigatorTree:     $navigatorTree;
   navigatorItem:     $navigatorItem;
+  note:              $note;
 }
