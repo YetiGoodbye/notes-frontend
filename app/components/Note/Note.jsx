@@ -28,7 +28,7 @@ class Note extends WithBemHelper{
   componentDidUpdate(){
     const {note, match, updateNote} = this.props;
     const needUpdate = !note || (!note.valid && !note.updating);
-    console.log("update", note);
+    #- console.log("update", note);
     if (needUpdate) {
       updateNote(match.params.id || 0);
     }
@@ -37,7 +37,7 @@ class Note extends WithBemHelper{
   componentDidMount(){
     const {note, match, updateNote} = this.props;
     const needUpdate = !note || (!note.valid && !note.updating);
-    console.log("mount", note);
+    #- console.log("mount", note);
     if (needUpdate) {
       updateNote(match.params.id || 0);
     }

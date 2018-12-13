@@ -13,8 +13,6 @@ function createBaseConfig(env){
         Reducers:         resolve(env.base, 'app/reducers/'),
         Selectors:        resolve(env.base, 'app/reducers/'),
         Api:              resolve(env.base, 'app/api/'),
-        //Store:      resolve(env.base, 'app/store/'),
-        //Loaders:    resolve(env.base, 'loaders'),
       },
       extensions: ['.js', '.jsx']
     },
@@ -22,7 +20,11 @@ function createBaseConfig(env){
       rules:[{
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: [{
+          loader: 'babel-loader'
+        },{
+          loader: 'cleanup-debug-loader',
+        }],
       }]
     },
   };

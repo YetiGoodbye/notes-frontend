@@ -1,6 +1,9 @@
 const notesTree = [
-  { // 0
+  {
+    icon: 'home',
+    title: 'Home page',
     childrenIds: [1, 11],
+    noteId: 0,
   }, { // 1
     title: 'Компьютер',
     childrenIds: [2, 3],
