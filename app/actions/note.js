@@ -11,7 +11,8 @@ const updateNote = (id) => (dispatch) => {
     receiveNote({
       id,
       valid: false,
-      updating: true
+      updating: true,
+      // status: 'updating',
     })
   );
 

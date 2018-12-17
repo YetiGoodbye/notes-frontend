@@ -11,24 +11,29 @@ import {updateNote} from 'Actions';
 import WithBemHelper from 'CommonComponents/WithBemHelper';
 import LoadingIndicator from 'CommonComponents/LoadingIndicator';
 
+import NoteEditor from 'Components/NoteEditor';
+
 class Note extends WithBemHelper{
+
   render(){
-    //const id = this.props.match.params.id || 0;
-    //const note = this.props.getNote(id);
     const {note} = this.props;
-    return (
-      <div{...this.classes()}>
-      {
-        (note && note.content) ? note.content : <LoadingIndicator />
-      }
-      </div>
-    );
+    #-console.log("note: ", this.props);
+
+
+
+    return <NoteEditor />;
+    // return (
+    //   <div{...this.classes()}>
+    //   {
+    //     (note && note.content) ? note.content : <LoadingIndicator />
+    //   }
+    //   </div>
+    // );
   }
 
   componentDidUpdate(){
     const {note, match, updateNote} = this.props;
     const needUpdate = !note || (!note.valid && !note.updating);
-    #- console.log("update", note);
     if (needUpdate) {
       updateNote(match.params.id || 0);
     }
@@ -37,7 +42,6 @@ class Note extends WithBemHelper{
   componentDidMount(){
     const {note, match, updateNote} = this.props;
     const needUpdate = !note || (!note.valid && !note.updating);
-    #- console.log("mount", note);
     if (needUpdate) {
       updateNote(match.params.id || 0);
     }
