@@ -1,6 +1,7 @@
 import {notes} from 'Api';
 import responseStatus from 'Api/responseStatus';
 import syncStatus from 'Config/dataSyncStatus';
+import {convertFromRaw, EditorState} from 'draft-js';
 
 import types from './types';
 
@@ -24,7 +25,10 @@ const updateNote = (id) => (dispatch) => {
       #-console.log('updateNote action, response:', response);
       if (response.status === responseStatus.OK) {
         dispatch(receiveNote({
-          ...response.data,
+          id,
+          editorState: EditorState.createWithContent(
+            convertFromRaw(JSON.parse(response.data.content))
+          ),
           status: syncStatus.OK,
         }));
       } else {

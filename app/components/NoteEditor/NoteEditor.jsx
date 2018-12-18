@@ -1,40 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+
 import { Editor } from 'react-draft-wysiwyg';
-import {convertToRaw, convertFromRaw, EditorState} from 'draft-js';
+import {EditorState} from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-const bla = '{"blocks":[{"key":"lpe6","text":"id: 1","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"7b2vr","text":"123","type":"unstyled","depth":0,"inlineStyleRanges":[{"offset":0,"length":3,"style":"BOLD"}],"entityRanges":[],"data":{}}],"entityMap":{}}';
+import {getNote} from 'Selectors';
+import {receiveNote} from 'Actions';
 
 import WithBemHelper from 'CommonComponents/WithBemHelper';
 
-class Component extends WithBemHelper{
+class NoteEditor extends WithBemHelper{
 
   constructor(props){
     super(props);
-    this.state = {
-      editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(bla))),
-    };
-    
-    this.onEditorStateChange = (editorState) => this.setState({editorState});
 
+    console.log('NoteEditor props: ', props);
+    
+    this.onEditorStateChange = (editorState) => {
+      this.props.updateNote(props.match.params.id, editorState);
+    }
+
+    #-[
     this.logEditorState = () => {
       console.log(JSON.stringify(
-        convertToRaw(this.state.editorState.getCurrentContent()))
+        convertToRaw(this.props.editorState.getCurrentContent()))
       );
-      console.log(
-        convertToRaw(this.state.editorState.getCurrentContent())
-      );
-    };    
+    };
+    #-]   
   }
 
 
   render(){
     return (
       <div>
-        <button onClick={this.logEditorState}>Log state</button>
+        #-<button onClick={this.logEditorState}>Log state</button>
         <Editor
-          editorState={this.state.editorState}
+          editorState={this.props.editorState}
           toolbarClassName="toolbarClassName"
           wrapperClassName="wrapperClassName"
           editorClassName="editorClassName"
@@ -45,8 +49,22 @@ class Component extends WithBemHelper{
   }
 }
 
-Component.propTypes = {};
+NoteEditor.propTypes = {};
 
-export default Component;
+const mapStateToProps = (state, ownProps) => {
+  const note = getNote(state, ownProps.match.params.id);
+  return {
+    editorState: note.editorState,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  updateNote: (id, editorState) => {
+    dispatch(receiveNote({id, editorState}));
+  },
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NoteEditor));
+
 
 

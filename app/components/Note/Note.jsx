@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {getNote} from 'Selectors';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import classNames from 'Config/css/_class-names.scss';
 import syncStatus from 'Config/dataSyncStatus';
 
+import {getNote} from 'Selectors';
 import {updateNote} from 'Actions';
 
 import WithBemHelper from 'CommonComponents/WithBemHelper';
@@ -18,18 +18,16 @@ class Note extends WithBemHelper{
 
   render(){
     const {note} = this.props;
-    #-console.log("note: ", this.props);
 
+    if (!note) return <LoadingIndicator />;
 
-
+    switch (note.status) {
+      case syncStatus.OK:
+        return <NoteEditor />
+      default:
+        return <LoadingIndicator />;
+    }
     return <NoteEditor />;
-    // return (
-    //   <div{...this.classes()}>
-    //   {
-    //     (note && note.content) ? note.content : <LoadingIndicator />
-    //   }
-    //   </div>
-    // );
   }
 
   componentDidUpdate(){
