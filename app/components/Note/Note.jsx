@@ -5,6 +5,7 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import classNames from 'Config/css/_class-names.scss';
+import syncStatus from 'Config/dataSyncStatus';
 
 import {updateNote} from 'Actions';
 
@@ -33,16 +34,14 @@ class Note extends WithBemHelper{
 
   componentDidUpdate(){
     const {note, match, updateNote} = this.props;
-    const needUpdate = !note || (!note.valid && !note.updating);
-    if (needUpdate) {
+    if (!note || note.status === syncStatus.NEED_UPDATE) {
       updateNote(match.params.id || 0);
     }
   }
 
   componentDidMount(){
     const {note, match, updateNote} = this.props;
-    const needUpdate = !note || (!note.valid && !note.updating);
-    if (needUpdate) {
+    if (!note || note.status === syncStatus.NEED_UPDATE) {
       updateNote(match.params.id || 0);
     }
   }

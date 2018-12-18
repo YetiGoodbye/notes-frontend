@@ -1,4 +1,7 @@
 import {notes} from 'Api';
+import responseStatus from 'Api/responseStatus';
+import syncStatus from 'Config/dataSyncStatus';
+
 import types from './types';
 
 const receiveNote = (note) => ({
@@ -10,20 +13,27 @@ const updateNote = (id) => (dispatch) => {
   dispatch(
     receiveNote({
       id,
-      valid: false,
-      updating: true,
-      // status: 'updating',
+      // valid: false,
+      // updating: true,
+      status: syncStatus.UPDATING,
     })
   );
 
   notes.fetchNote(id).then (
-    note => { dispatch(
-      receiveNote({
-        ...note,
-        valid:true,
-        updating: false
-      })
-    )},
+    response => {
+      #-console.log('updateNote action, response:', response);
+      if (response.status === responseStatus.OK) {
+        dispatch(receiveNote({
+          ...response.data,
+          status: syncStatus.OK,
+        }));
+      } else {
+        dispatch(receiveNote({
+          id,
+          status: syncStatus.NOT_FOUND,
+        }));
+      }
+    },
     error => { console.log("action navigator: ", error) }
   );
 };

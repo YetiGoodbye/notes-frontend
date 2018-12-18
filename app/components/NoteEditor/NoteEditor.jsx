@@ -4,7 +4,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import {convertToRaw, convertFromRaw, EditorState} from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-const bla = '{"blocks":[{"key":"lpe6","text":"12s3","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"7b2vr","text":"123","type":"unstyled","depth":0,"inlineStyleRanges":[{"offset":0,"length":3,"style":"BOLD"}],"entityRanges":[],"data":{}}],"entityMap":{}}';
+const bla = '{"blocks":[{"key":"lpe6","text":"id: 1","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"7b2vr","text":"123","type":"unstyled","depth":0,"inlineStyleRanges":[{"offset":0,"length":3,"style":"BOLD"}],"entityRanges":[],"data":{}}],"entityMap":{}}';
 
 import WithBemHelper from 'CommonComponents/WithBemHelper';
 
